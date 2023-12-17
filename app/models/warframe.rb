@@ -1,5 +1,5 @@
 class Warframe < ApplicationRecord
-  ELEMENTS = ['impact', 'heat', 'cold', 'electricity', 'toxin', 'magnetic', 'radiation']
+  ELEMENTS = ['Impact', 'Heat', 'Cold', 'Electricity', 'Toxin', 'Magnetic', 'Radiation']
 
   validates :element, inclusion: { in: ELEMENTS }
 end

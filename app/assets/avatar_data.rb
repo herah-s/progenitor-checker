@@ -1,4 +1,6 @@
-{
+require "json"
+
+hash = {
   Warframes: {
 	  Ash: {
 		  Abilities: [ "Shuriken", "Smoke Screen", "Teleport", "Blade Storm" ],
@@ -1830,3 +1832,8 @@
 		}
 	}
 }
+
+
+File.open("./app/assets/avatar_data.json", "w") do |f|
+  f.write(JSON.pretty_generate(hash))
+end
