@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Progenitor Checker</h1>
   <div class="form-control">
-    <%= form_with model: @wf, method: :get, url: warframes_path do |f| %>
-      <%= f.select :name, @wf_names, prompt: 'Select Warframe', class: "form-select is-valid" %>
+    <%= simple_form_for :wf, method: :get, url: warframes_path, data: {controller: "name"} do |f| %>
+      <%= f.select :name, @wfs.map(&:name), prompt: 'Select Warframe', class: "form-select is-valid" %>
       <%= f.submit "Check!", class: "btn btn-success" %>
     <% end %>
   </div>
   <div class="form-control">
-    <%= form_with model: @wf, method: :get, url: warframes_path do |f| %>
+    <%= simple_form_for :wf, method: :get, url: warframes_path, data: {controller: "element"} do |f| %>
       <%= f.select :element, @elements, prompt: 'Select Element', class: "form-select is-valid" %>
       <%= f.submit "Check!", class: "btn btn-success" %>
     <% end %>

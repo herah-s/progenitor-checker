@@ -1,8 +1,11 @@
 class WarframesController < ApplicationController
   def index
-    @wfs = Warframe.all.includes(:name, :element)
-    @wf = Warframe.find_by(params[:name])
-    @wf_names = Warframe.all.map(&:name)
+    @wfs = Warframe.all
+    @wf = Warframe.find_by(name: params[:wf][:name])
     @elements = ['Impact', 'Heat', 'Cold', 'Electricity', 'Toxin', 'Magnetic', 'Radiation']
+  end
+
+  def show
+    @wf = Warframe.find_by(name: params[:wf][:name])
   end
 end
